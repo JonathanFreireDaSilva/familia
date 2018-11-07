@@ -1,0 +1,77 @@
+import Armas.*
+import integrante.*
+
+test "esHeavy" {
+	const metra = new Ametralladora()
+	const bomba = new Bomba()
+	const cuchi = new Cuchillo()
+	 
+	
+	metra.potenciaDestructiva(100)
+	metra.puntosHonor(100)
+	assert.that(metra.esHeavy())
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+	assert.that(cuchi.esHeavy())
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+	assert.that(cuchi.esHeavy())
+	bomba.potenciaDestructiva()
+	bomba.puntosHonor()
+	assert.equals(bomba.esHeavy())
+}
+
+test "puntosDeHonor criminal " {
+	
+	const metra = new Ametralladora()
+	const bomba = new Bomba()
+	const cuchi = new Cuchillo()
+	
+	metra.potenciaDestructiva(100)
+	metra.puntosHonor(100)
+	
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+	
+	bomba.potenciaDestructiva()
+	bomba.puntosHonor()
+
+     const cri = new Criminal()
+     
+     
+     cri.honorBasico(20)
+     cri.tomarArma(cuchi)
+     assert.equals(40,cri.puntosDeHonor())
+}
+
+test "puntosDeHonor Respetable" {
+	
+	const metra = new Ametralladora()
+	const bomba = new Bomba()
+	const cuchi = new Cuchillo()
+	
+	metra.potenciaDestructiva(100)
+	metra.puntosHonor(100)
+	
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+
+	cuchi.potenciaDestructiva()
+	cuchi.puntosHonor(20)
+	
+	bomba.potenciaDestructiva()
+	bomba.puntosHonor()
+
+     const res = new Respetable()
+     
+     
+     res.honorBasico(20)
+     res.tomarArma(cuchi)
+     res.titulos(2)
+     assert.equals(40,res.puntosDeHonor())
+}
+
+
